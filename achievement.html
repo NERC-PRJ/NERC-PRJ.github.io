@@ -135,7 +135,7 @@
             <div class="contents">
                 <button class="btn news-btn" data-toggle="collapse" data-target="#collapse-002">
                     <span>
-                        NeurIPS 2022 —— 通过Regional Objectness挖掘未见类：一种增量分割的简单基线方法
+                        沉浸式多模态交互与呈现系统（课题二）
                     </span> 
                     <span>
                     2022-10-09
@@ -144,11 +144,12 @@
                 <div id="collapse-002" class="collapse">
                     <!-- 大标题 -->
                     <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">1. Abstract</span>
+                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">1.成果简介</span>
                     </div>
                     <p>
-                        增量学习在图像分类任务中已经得到了广泛研究，并在缓解灾难性遗忘的问题上取得了一些成果。但在类增量语义分割这一任务上，由于背景类的语义转移（semantic shift of the background class, 即模型在过去学到的一些概念被分配到当前训练中的背景类中的情况）存在，类增量语义分割任务仍然具有挑战。
+                       该系统基于南京大学南京大学EE VirtualStar数字人交互试验平台，通过动作捕捉和面部表情捕捉棚对人脸/人体进行高精度的三维采集，运用4D人脸建模和映射系统快速生成数字人形象，结合VR手柄、传统键鼠、语音设备，实现语音、眼动、肢体等多模态交互。
                     </p>
+                    <br><img src="./images/achievement/2022-NeurIPS-2/1.png" alt="" class="content-img">
                     <p>
                         本文为解决背景类的语义转移问题，提出了一种名为MicroSeg的新颖而有效的方法，该工作基于“在背景中具有显著对象性的区域很可能属于过去或者未来的概念”的思想，通过生成类别无关的先验掩膜(mask proposals, 下同)来挖掘这些区域，并在优化阶段对它们进行聚类与分配新的标签，以进行更好地训练。相对于之前最先进的方法(SSUL)通过显著性检测来寻找重点区域，MicroSeg关注到了图像中的几乎所有thing和stuff，并获得了更好的分割结果。
                     </p>
