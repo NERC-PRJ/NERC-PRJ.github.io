@@ -149,100 +149,14 @@
                     <p>
                        该系统基于南京大学南京大学EE VirtualStar数字人交互试验平台，通过动作捕捉和面部表情捕捉棚对人脸/人体进行高精度的三维采集，运用4D人脸建模和映射系统快速生成数字人形象，结合VR手柄、传统键鼠、语音设备，实现语音、眼动、肢体等多模态交互。
                     </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/1.png" alt="" class="content-img">
-                    <p>
-                        本文为解决背景类的语义转移问题，提出了一种名为MicroSeg的新颖而有效的方法，该工作基于“在背景中具有显著对象性的区域很可能属于过去或者未来的概念”的思想，通过生成类别无关的先验掩膜(mask proposals, 下同)来挖掘这些区域，并在优化阶段对它们进行聚类与分配新的标签，以进行更好地训练。相对于之前最先进的方法(SSUL)通过显著性检测来寻找重点区域，MicroSeg关注到了图像中的几乎所有thing和stuff，并获得了更好的分割结果。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/1.png" alt="" class="content-img">
-                    <p>
-                        本文的贡献如下：
-                    </p>
-                    <p>
-                        （1）提出了MicroSeg，通过mask proposals，使得在背景中的概念的分布特征可以被模型更好地感知，有效缓解由背景类的语义转移引起的灾难性遗忘问题。
-                    </p>
-                    <p>
-                        （2）在两个基准数据集的多个增量场景下取得了最先进的效果，且在增量步骤更多的困难场景下，相对之前工作的性能提升更加明显。
-                    </p>
-
-                    <!-- 大标题 -->
+                    <br><img src="./images/5.成果/2火星宇航员/1.jpg" alt="" class="content-img">
                     <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">2. Method</span>
-                    </div>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/2.png" alt="" class="content-img">
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.1 Overview</span>
+                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">2.火星探索场景</span>
                     </div>
                     <p>
-                        <span style="font-weight: 800;">Models：</span>
-                        本文中，语义分割的模型由两部分组成：Feature Extractor和Classifier，特别地，对于第t(t-1)训练阶段，会使用(t-1)训练阶段的模型来对于当前的训练过程进行监督。
+                        团队设计了宇航员和火星车在火星探索的场景，包含火星表面环境的基本场景信息，火星车自主行驶、宇航员火星行走探险等场景，十分生动。
                     </p>
-                    <p>
-                        <span style="font-weight: 800;">Proposal generator：</span>
-                        本文中，通过Mask2Former来生成mask proposals，所有的mask proposals没有交集。
-                    </p>
-                    <p>
-                        <span style="font-weight: 800;">Proposal classification branch：</span>
-                        在这个分支中，Feature Extractor输出的图像特征会和mask proposals进行掩膜平均池化(mask average pooling)操作以获得proposals所对应的原型表示，之后通过Classifier对于这些原型表示进行分类，以得到mask proposals对应的类别标签。接下来，Proposal Reorganization操作将proposal的分类映射回原图像上，并得到语义分割的结果。
-                    </p>
-                    <p>
-                        <span style="font-weight: 800;">Dense prediction branch：</span>
-                        密集分割分支对于Feature Extractor输出的图像特征进行像素级的预测，得到语义分割的结果。该分支仅在t=0时使用，用于保证模型早期训练的效果。
-                    </p>
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.2 Label remodeling</span>
-                    </div>
-                    <p>
-                        为了有效利用模型在过去学习到的概念，本工作通过上一学习阶段的模型的预测，以及ground truth通过以下规则生成伪标签，在优化过程中为模型提供更加合理的监督信息。通过对于标签的重建，减轻了背景类的语义迁移现象。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/3.png" alt="" class="content-img">
-                    <p>
-                        直观地，对于ground truth的背景区域中，过去模型判定为前景，且有较大置信度的像素，会在伪标签中被标注为前景；而背景中的其他区域则标注为未见(unseen)类别，通过Micro 机制进行进一步细分和消解。
-                    </p>
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.3 Micro mechanism</span>
-                    </div>
-                    <p>
-                        在Label remodeling中，本文对背景中潜在的各种概念进行表征，并缓解背景类的语义迁移的问题。但即使是未见类别也可能包括若干不同的thing或stuff，因此，本文进一步对其进行消解，将其分为不同部分，其中每个部分都可以视为一个未见概念的特征中心。
-                    </p>
-
-                    <!-- 大标题 -->
-                    <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">3. Experiments</span>
-                    </div>
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">3.1 Experimental results</span>
-                    </div>
-                    <p>
-                        以下是本文提出的MicroSeg在两个基准数据集Pascal VOC 2012 和ADE20K上不同增量场景下的实验结果，其中MicroSeg-M是储存了部分样本用于训练的设定，该设定的提出是为了和之前的工作(SSUL-M)进行公平比较。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/4.png" alt="" class="content-img">
-                    <br><img src="./images/achievement/2022-NeurIPS-2/5.png" alt="" class="content-img">
-                    <p>
-                        以下是不同增量场景下的实验结果按步骤可视化与之前最先进工作的比较：(a)VOC 15-1(6 steps), (b) VOC 2-2(10 steps)。本文提出的MicroSeg相对之前的方法在相同学习条件下遗忘程度更低，性能更好。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/6.png" alt="" class="content-img">
-                    <p>
-                        下图是Micro机制的定性分析。从‘cluster’一列中可以看出，在无监督的条件下，通过Micro机制很好地将背景部分分割成了合理的几个区域。这种分割将有助于新知识的学习，以及防止新概念对于旧知识的冲击。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/7.png" alt="" class="content-img">
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">3.2 Ablation studies</span>
-                    </div>
-                    <p>
-                        下表是对于几个主要模块DP (dense prediction branch), Proposal (proposal classification branch), Micro (Micro mechanism)的消融实验，能够比较直观地体现每个组成部分带来的性能提升。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/8.png" alt="" class="content-img">
-                    <br><img src="./images/achievement/2022-NeurIPS-2/9.png" alt="" class="content-img">
-                    <p>
-                        下表是对于超参数(Micro机制的K，标签重建中的阈值τ)的消融实验，可以观察到本问题提出的方法对于超参数的选择并不很敏感。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-2/10.png" alt="" class="content-img">
-                    
+                    <br><img src="./images/5.成果/2火星宇航员/2.jpg" alt="" class="content-img">
                 </div>
             </div>
 
