@@ -203,7 +203,7 @@
             <div class="contents">
                 <button class="btn news-btn" data-toggle="collapse" data-target="#collapse-004">
                     <span>
-                        NeurIPS 2022 —— 单样本生成式域迁移
+                        古画动图生成（课题三）
                     </span> 
                     <span>
                     2022-10-11
@@ -212,72 +212,21 @@
                 <div id="collapse-004" class="collapse">
                     <!-- 大标题 -->
                     <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">1. Abstract</span>
+                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">1.成果简介</span>
                     </div>
                     <p>
-                        单样本生成式域迁移旨在，在只使用一个参考图像的条件下，在只使用一个参考图像的条件下。然而，对于迁移后的生成器来说， (i) 生成类似于预训练生成器内容丰富的图像，同时 (ii) 忠实地获取目标域的参考图像的属性和样式。在本文中，我们介绍了一种新的单样本生成式域迁移方法，即 DiFa，用于多样的生成和准确的迁移。对于全局水平的迁移，我们利用差异参考图像的 CLIP 编码与源图像来约束目标生成器。对于局部适应，我们引入基于注意力机制的风格损失，它自适应的每个迁移图像块及其对应的参考图像块。为了更好的多样化生成，我么引入选择性跨域一致性来保持编辑隐空间中的域共享属性继承多样性预训练的生成器。大量实验表明我们的方法在量化和可视化上均达到了最优，特别是对于域间差距较大的庆幸。此外，我们的 DiFa 可以轻松扩展到零样本生成式域迁移任务中。
+                        团队将真实古画文物中的元素动画化（肢体运动、水流效果、树枝飘动、底色渐变等），进行2D或裸眼3D呈现；形成了经过预处理与标注人物基本情况的古画数据集约300张。
                     </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-3/1.png" alt="" class="content-img">
-
-
+                    <br><img src="./images/5.成果/4古画生成/1.jpg" alt="" class="content-img">
                     <!-- 大标题 -->
                     <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">2. Method</span>
-                    </div>
-                    <br><img src="./images/achievement/2022-NeurIPS-3/2.png" alt="" class="content-img">
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.1 全局水平域迁移</span>
+                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">2.预期可实现效果</span>
                     </div>
                     <p>
-                        给定在源域A上预训练的生成器GA，以及来自目标域B的引导图Itar，首先使用CLIP编码器计算域间向量：
+                        可建设内容：拍摄并实时识别用户动作，古画中的人物做对应预设动作，系统播放对应人声、音乐。
                     </p>
-                    <br><img style="width: 250px;" src="./images/achievement/2022-NeurIPS-3/3.png" alt="" class="content-img">
                     <p>
-                        然后计算训练过程中样本间的偏移向量及全局损失函数
-                    </p>
-                    <br><img style="width: 400px;" src="./images/achievement/2022-NeurIPS-3/4.png" alt="" class="content-img">
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.2 局部水平域迁移</span>
-                    </div>
-                    <p>
-                        尽管域间向量可以捕获引导图中的全局水平的域代表性特征，而在CLIP编码空间中，局部属性和风格却经常被忽略。因此，只使用全局水平损失函数训练不能准确获取引导图中的局部信息。为了解决这个问题，我们提出了基于注意力机制的风格损失函数来帮助GB准确获取局部代表性特征。受风格迁移任务重风格-内容对齐的启发，我们设计局部损失函数，让迁移图中的每一块都能自适应的寻找并对齐引导图中的对应风格，损失函数如下所示：
-                    </p>
-                    <br><img style="width: 500px;" src="./images/achievement/2022-NeurIPS-3/5.png" alt="" class="content-img">
-                    <br><img style="width: 200px;" src="./images/achievement/2022-NeurIPS-3/6.png" alt="" class="content-img">
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.2 自适应生成多样性保持</span>
-                    </div>
-                    <p>
-                        对于单样本生成式域迁移任务来说，生成多样的图片也十分重要。为了达到这个目的，我们首先把IA和IB均映射到隐空间，获取对应的隐编码。并在训练的过程中维持两个队列，分别存放来自域A和B的隐编码，并实时更新两个队列平均向量之差。根据这个差，计算自适应跨域一致性损失函数：
-                    </p>
-                    <br><img style="width: 500px;" src="./images/achievement/2022-NeurIPS-3/7.png" alt="" class="content-img">
-
-
-                    <!-- 大标题 -->
-                    <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">3. Experiments</span>
-                    </div>
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">3.1 Experimental results</span>
-                    </div>
-                    <p>
-                        图3是本文提出的DiFa在源域为FFHQ和AFHQ-Cat，在目标域为不同引导图的可视化结果。表1是DiFa在源域为FFHQ和AFHQ-Cat，目标域为MetFaces和AFHQ-Wild的域迁移结果。从图3和表1可以看出，我们的方法在定量和定性方面均达到了最优。具体来说，Few-Shot Adaption产生了严重模式坍塌现象。StyleGAN-NADA不能准确的保持源域的属性，因此多样性较低。Mind The Gap对于域间差距较大的情况处理较差，有明显的瑕疵。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-3/8.png" alt="" class="content-img">
-                    <br><img src="./images/achievement/2022-NeurIPS-3/9.png" alt="" class="content-img">
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">3.2 Ablation Studies</span>
-                    </div>
-                    <p>
-                        下表是对于两个主要损失函数SCC(Selective Cross-domain Consistency), AP(Attentive Style)的消融实验，能够比较直观地体现每个函数带来的性能提升。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-3/10.png" alt="" class="content-img">
-                    
+                        当前，团队已形成基于姿态估计与几何计算的全自动古画人物肢体动图生成方案。未来将建设支持多人移动端制作、云端动图生成以及全息舱显示的古画动画制作服务系统。
                 </div>
             </div>
 
