@@ -92,18 +92,26 @@
                 <div id="collapse-001" class="collapse">
                     <!-- 大标题 -->
                     <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;margin-bottom: 5px;">1. Abstract</span>
+                        <span style="font-weight: 800; font-size: 25px;margin-bottom: 5px;">1.成果简介</span>
                     </div>
                     <p>
                         郑国东周祭祀遗址编钟是春秋中期的青铜乐器，这一批编钟为二十件钮钟和四件镈钟的编列组合，各组形制及钟悬规则基本一致、铸造规范。为提升郑国编钟展示效果，增加体验交互性，团队对河南博物院郑国编钟进行了扫描重建，配合编钟现场演奏的配音，形成郑国编钟演奏交互系统，这对于沉浸式体验春秋郑国编钟的音乐性能，增加历史文化趣味性具有重要意义。
                     </p>
                      <br> <img src="./images/5.成果/1编钟/1.jpg" alt="" class="content-img">
                     <br> 
+                    <!-- 大标题 -->
+                    <div style="padding-top: 10px;padding-bottom: 10px;">
+                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">2.重建流程</span>
+                    </div>
                     <p>
                         为保证郑国编钟细节的真实质感，团队设计了系统的模型重建流程：通过结构光三维扫描设备，获取郑国编钟的局部点云数据，采用快速点特征直方图并迭代最近邻点的方法，将全局点云配准，运用go surf表面重建算法将编钟表面重建，通过回溯双向波前法填充空洞，获得封闭的模型。基于隐函数的纹理重建网络，从彩色图片中恢复模型纹理，进一步提高郑国编钟模型的还原度、真实感。
                     </p>
                     <br> <img src="./images/5.成果/1编钟/2.jpg" alt="" class="content-img">
                     <br> 
+                    <!-- 大标题 -->
+                    <div style="padding-top: 10px;padding-bottom: 10px;">
+                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">3.问题与挑战</span>
+                    </div>
                     <p>
                         由于编钟存在尺寸过大、漆面反光的问题，团队采用分段扫描拼接、棱面分别贴上美纹纸及棋盘格等标志物，优先保证几何重建。
                     </p> 
@@ -111,100 +119,15 @@
                     <br> 
                      <br> <img src="./images/5.成果/1编钟/4.jpg" alt="" class="content-img">
                     <br> 
+                    <!-- 大标题 -->
+                    <div style="padding-top: 10px;padding-bottom: 10px;">
+                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">4.效果增强</span>
+                    </div>
                     <p>
                         此外，为实现郑国编钟的沉浸式体验效果，团队使用em32高阶话筒进行立体声声音录制，对不同编钟不同力度各录制3遍 由专业演奏老师进行编钟敲击，达到还原真实演奏。
                     </p> 
                     <br> <img src="./images/5.成果/1编钟/5.jpg" alt="" class="content-img">
                     <br>  
-                    <span style="font-weight: 800; font-size: 20px;">文章主要的贡献</span>
-                    <p>
-                        <p>（1）提出了新的Few Shot Segmentation任务的范式</p>
-                        <p>（2）提出了两阶段小样本分割框架MM-Former，可以有效地将support样本与一组先验掩码进行匹配来获得分割结果。 </p>
-                        <p>（3）在COCO和PASCAL上取得了SOTA的结果</p>
-                    </p>
-
-
-                    <!-- 大标题 -->
-                    <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">2. Methodology</span>
-                    </div>
-                    <p>论文中的模型结构如下：</p>
-                    <br><img src="./images/achievement/2022-NeurIPS-1/3.png" alt="" class="content-img">
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.1 Potential Objects Segmenter（分割）</span>
-                    </div>
-                    <p>
-                        这篇文章遵循Mask2Former的设定，采用标准的Transformer结构，将backbone经过MSDeformAttn后的特征与N个可学习向量进行cross attention。由N个向量引导先验掩码产生。这种先验掩码和目标检测、零样本分割任务中的先验框类似，具有很强的泛化性，可对训练集未出现过的类别（novel class）产生准确分割。
-                    </p>
-                    <p>
-                        这里需要注意的一点是，先验掩码的产生并不涉及support和query之间的特征交互，仅由query图像通过backbone+ Potential Objects Segmenter（POS）模块产生。
-                    </p>
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">2.2 Mask Matching Module （匹配）</span>
-                    </div>
-                    <p>
-                        这一模块将support样本提取出的prototype和query样本通过先验掩码提取出的N个prototypes进行匹配，来确定最终的分割结果。这种匹配仅在prototype之间进行，不需要考虑像素级的分割，因此相比于先前模型将匹配和分割融合的做法，很大程度上降低了网络学习的难度。</p>
-                    <p>
-                        <span style="font-weight: 800;">Feature Alignment Block：</span>
-                        将support样本和query样本由backbone提取出的特征进行对齐。分为特征自对齐（Self Alignment）和特征互对齐（Cross Alignment）两部分，如下图所示。Self Alignment在channel维度平滑了特征，强调了重要的通道，抑制了不重要的通道。Cross Alignment使support和query的同类特征趋于一致。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-1/4.png" alt="" class="content-img">
-                    <p>
-                        <span style="font-weight: 800;">Learnable Matching Block: </span>
-                        通过mask global pooling的方式分别得到support的prototype和query的N个prototypes，并计算二者之间的余弦相似度，在经过MLP层预测得到最终匹配结果。
-                    </p>
-
-                    <!-- 大标题 -->
-                    <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">3. Experiment</span>
-                    </div>
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">3.1 Comparison with SOTA</span>
-                    </div>
-                    <br><img src="./images/achievement/2022-NeurIPS-1/5.png" alt="" class="content-img">
-                    <p>
-                        其中Oracle结果为生成N个先验掩码后直接使用groundtruth选择一个IoU最高的掩码作为分割结果。Oracle和最终结果之间的差距（~20mIoU）表明MM-Former还有很大的潜在提升空间。                    
-                    </p>
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">3.2 Ablation Studies</span>
-                    </div>
-                    <p>
-                        （a）对Mask Matching Module各模块进行消融，（b）对特征对齐模块FAB的插入位置进行消融，（c）对两阶段的训练策略进行消融                    
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-1/6.png" alt="" class="content-img">
-                    <p>
-                        （a）对POS的分类器进行消融，（b）对先验掩码数量进行消融。
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-1/7.png" alt="" class="content-img">
-
-                    
-                    <!-- 大标题 -->
-                    <div style="padding-top: 10px;padding-bottom: 10px;">
-                        <span style="font-weight: 800; font-size: 25px;padding-top: 15px;">4. Analysis of model transferability</span>
-                    </div>
-                    <p>
-                        MM-Former在使用COCO训练时表现出很好的迁移性能，但在使用PASCAL训练中表现相对较差。这篇文章对此现象进行了深入研究
-                    </p>
-                    <br><img src="./images/achievement/2022-NeurIPS-1/8.png" alt="" class="content-img">
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">4.1 训练样本数的影响</span>
-                    </div>
-                    <p>
-                        这篇文章使用COCO数据集中的15个PASCAL训练类别的所有训练样本来训练MM-Former。在这种情况下，训练样本大约为PASCAL训练集的9倍（COCO-15）。当训练类别数量有限时，更多的培训数据并不会提升性能（60.7mIoU vs 63.3 mIoU）
-                    </p>
-                    <!-- 小标题 -->
-                    <div style="padding-bottom: 10px;padding-top: 10px;">
-                        <span style="font-weight: 800; font-size: 20px;">4.2 训练类别数的影响</span>
-                    </div>
-                    <p>
-                        这篇文章从COCO数据集中的75个类别（不包括测试类别）随机抽取和PASCAL数据集相同数量的训练图像（大约6000张），来训练MM-Former（COCO-75）。当使用同等数据量进行训练时，更多的类别会带来更好的匹配性能（66.8mIoU vs 63.3mIoU）。
-                    </p>
-                    <p>
-                        总之，<span style="font-weight: 800;">训练类别的数量</span>决定了匹配模块的性能。这一发现符合Few Shot任务和Meta Learning的动机。当训练类别的数量有限时，会影响匹配模块的性能。
-                    </p>
                 </div>
             </div>
 
