@@ -83,7 +83,7 @@
             <div class="contents">
                 <button class="btn news-btn" data-toggle="collapse" data-target="#collapse-001">
                     <span>
-                        NeurIPS 2022 —— 基于掩码匹配Transformer的小样本分割方法
+                        河南博物院郑国编钟重建（课题一）
                     </span> 
                     <span>
                     2022-10-09
@@ -95,19 +95,21 @@
                         <span style="font-weight: 800; font-size: 25px;margin-bottom: 5px;">1. Abstract</span>
                     </div>
                     <p>
-                        本篇文章从一个全新的角度来解决Few Shot Segmentation任务。先前的小样本分割模型都是遵循先由support图像中学习特征（prototype），在用prototype(s)来引导query图像分割的范式。然而这种做法将<span style="font-weight: 800;">匹配</span>和<span style="font-weight: 800;">分割</span>融合到一起，提升了网络的学习难度。
+                        郑国东周祭祀遗址编钟是春秋中期的青铜乐器，这一批编钟为二十件钮钟和四件镈钟的编列组合，各组形制及钟悬规则基本一致、铸造规范。为提升郑国编钟展示效果，增加体验交互性，团队对河南博物院郑国编钟进行了扫描重建，配合编钟现场演奏的配音，形成郑国编钟演奏交互系统，这对于沉浸式体验春秋郑国编钟的音乐性能，增加历史文化趣味性具有重要意义。
                     </p>
+                     <br> <img src="./images/achievement/2022-NeurIPS-1/2.png" alt="" class="content-img">
+                    <br> 
                     <p>
-                        本篇文章的提出了“先分割，后匹配”的范式，首先使用类无关的分割器将query图像分割出多个先验掩码（mask proposals）。之后由support图像引导的进行掩码匹配，将相关的掩码合并得到最终结果。
+                        为保证郑国编钟细节的真实质感，团队设计了系统的模型重建流程：通过结构光三维扫描设备，获取郑国编钟的局部点云数据，采用快速点特征直方图并迭代最近邻点的方法，将全局点云配准，运用go surf表面重建算法将编钟表面重建，通过回溯双向波前法填充空洞，获得封闭的模型。基于隐函数的纹理重建网络，从彩色图片中恢复模型纹理，进一步提高郑国编钟模型的还原度、真实感。
                     </p>
                     <br><img src="./images/achievement/2022-NeurIPS-1/1.png" alt="" class="content-img">
                     <!-- <p class="img-caption">图1：北京交通大学南门</p> <br> -->
                     <br> 
                     <p>
-                        优势：（1）MM-Former遵循“先分割，后匹配”的范式，可为query图像生成高质量的掩码。（2）prototype(s)仅需引导同类别掩码的匹配，而非像素级分割，很大程度降低了网络的学习难度。
+                        由于编钟存在尺寸过大、漆面反光的问题，团队采用分段扫描拼接、棱面分别贴上美纹纸及棋盘格等标志物，优先保证几何重建。
                     </p> 
                     <p>
-                        基于匹配和分割解耦的设计，降低了网络的学习难度，因此相比先前的SOTA方法CyCTR和HSNet，很大程度上减小了训练时间和训练内存消耗。
+                        此外，为实现郑国编钟的沉浸式体验效果，团队使用em32高阶话筒进行立体声声音录制，对不同编钟不同力度各录制3遍 由专业演奏老师进行编钟敲击，达到还原真实演奏。
                     </p> 
                     <br> <img src="./images/achievement/2022-NeurIPS-1/2.png" alt="" class="content-img">
                     <br> 
